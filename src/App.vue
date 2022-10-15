@@ -1,91 +1,45 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+<script>
+export default {
+  data() {
+    return {
+      randomNumer: 24,
+      hideMenu: true,
+    }
+  },
+  methods: {
+    showMenu() {
+      this.hideMenu = !this.hideMenu
+    }
+  }
+};
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="p-5 flex flex-row z-0">
+    <div class="w-1/2">
+      <router-link to="/" class="md:text-xl tracking-wider uppercase text-neon-yellow">Marvin Volkmann</router-link>
     </div>
-  </header>
-
-  <RouterView />
+    <div class="pl-5 w-1/2 flex justify-between">
+      <router-link to="/" class="md>text-xl tracking-wider uppercase">Projects ({{randomNumer}})</router-link>
+      <a class="md:text-xl tracking-wider uppercase cursor-pointer" @click="showMenu">Menu</a>
+    </div>
+  </div>
+    <RouterView></RouterView>
+  <div class="bg-gray-700/50 h-screen w-screen top-0 absolute" :class="{'hidden': hideMenu}" @click="hideMenu = !hideMenu">
+    <div class="w-1/3 h-screen bg-white right-0 absolute">
+      <div class="mx-16 my-10">
+        <ul>
+          <li class="text-neon-yellow bg-black">
+            Home
+          </li>
+          <li>
+            Projects
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
 </style>
