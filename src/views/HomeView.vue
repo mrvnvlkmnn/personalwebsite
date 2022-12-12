@@ -4,6 +4,6 @@ import homeComponent from "@/components/homeComponent.vue";
 
 <template>
   <main>
-    <homeComponent />
+    <homeComponent/>
   </main>
 </template>

@@ -15,6 +15,11 @@ const router = createRouter({
       name: 'ducatiPanigaleV2',
       component: DetailView,
     },
+    {
+      path: '/aarhus',
+      name: 'Aarhus2022',
+      component: DetailView
+    }
   ],
 });
 

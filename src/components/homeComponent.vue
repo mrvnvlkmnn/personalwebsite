@@ -21,7 +21,11 @@ export default {
   },
   methods: {
     scrollDown() {
-      window.scrollTo(0, document.body.scrollHeight, "smooth");
+      window.scrollTo({
+        top: 915,
+        left: 0,
+        behavior: 'smooth'
+      });
     },
     openInstagramUrl(instagramName) {
       window
@@ -33,13 +37,14 @@ export default {
 </script>
 
 <template>
-  <div class="absolute top-0 -z-10 flex flex-col md:flex-row">
+  <div class="absolute top-0 -z-10 flex flex-col md:flex-row overflow-hidden">
     <div class="h-1/2 md:w-1/2">
       <div class="px-5">
         <div class="absolute top-1/3 md:top-auto md:bottom-16 font-bold">
           <p class="text-xl md:text-3xl text-white tracking-wider">owned by</p>
           <p
-            class="text-neon-yellow md:text-neon-yellow/75 hover:text-neon-yellow text-4xl md:text-7xl tracking-wider"
+            class="text-neon-yellow cursor-pointer md:text-neon-yellow/75 hover:text-neon-yellow text-4xl md:text-7xl tracking-wider"
+            @click="openInstagramUrl(coverImage[0].instagramName)"
           >
             {{ coverImage[0].name }}
           </p>
@@ -73,7 +78,7 @@ export default {
       </div>
       <img
         class="object-cover w-full h-screen"
-        :src="`src/assets/img/${coverImage[0].imageCoverName}`"
+        :src="`src/assets/img/ducati/${coverImage[0].imageCoverName}`"
       />
     </div>
     <div class="h-screen md:w-1/2">
@@ -96,7 +101,7 @@ export default {
             </p>
             <img
               class="object-contain w-1/2"
-              :src="`src/assets/img/${coverImage[0].imageSmallName}`"
+              :src="`src/assets/img/ducati/${coverImage[0].imageSmallName}`"
             />
             <p class="text-6xl md:text-8xl absolute bottom-0 text-gray-400/75">
               {{ coverImage[0].imageDate }}

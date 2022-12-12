@@ -40,13 +40,13 @@ export default {
   &-container {
     width: fit-content;
     z-index: 9999;
-    max-width: 60%;
-    margin: 0px auto;
+    max-width: 90%;
+    margin: 0 auto;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
     font-family: Helvetica, Arial, sans-serif;
     @media (min-width: 1280px) {
-      max-width: 30%;
+      max-width: 32%;
     }
   }
 
